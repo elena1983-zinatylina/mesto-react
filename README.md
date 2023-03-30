@@ -70,4 +70,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-Ссылка на Проект "mesto-react" * [Ссылка на Проект "Место"] https://elena1983-zinatylina.github.io/mesto-react/
+Ссылка на Проект "mesto-react"  
+
+* [Ссылка на Проект "mesto-react"](hhttps://elena1983-zinatylina.github.io/mesto-react/)
