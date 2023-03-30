@@ -1,11 +1,11 @@
 
+import React from 'react';
 import Footer from './Footer';
+import Header from './Header';
 function App() {
   return (
 <div className="page">
-    <header className="header">
-        <img className="header__logo"  src="<%=require('./images/header-logo.svg')%>" alt="логотип Mесто Россия"/>
-    </header>
+<Header/>
     <main>
         <section className="profile">
             <div className="profile__avatar-container">
