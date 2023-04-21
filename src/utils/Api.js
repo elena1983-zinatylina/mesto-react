@@ -41,34 +41,33 @@
         .then(res => this._validateQuery(res));
     }
   
-    // лайк 
-    setLike(cardId) {
-      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-        method: 'PUT',
-        headers: this._headers
-      })
-        .then(res => this._validateQuery(res));
-    }
-  
+    // like/dislike
+  changeLike(cardId, isLiked) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: `${!isLiked ? 'DELETE' : 'PUT'}`,
+      headers: this._headers
+    })
+      .then(res => this._validateQuery(res))
+  }
     // Удаляем лайк
-    deleteLike(cardId) {
-      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-        method: 'DELETE',
-        headers: this._headers
-      })
-        .then(res => this._validateQuery(res));
-    }
-  
-    // информация о пользователе
-    getUserInfo() {
+   // deleteLike(cardId) {
+      //return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+       // method: 'DELETE',
+       // headers: this._headers
+     //// })
+       // .then(res => this._validateQuery(res));
+    //}
+
+   // Получение информации о пользователе с сервера
+   getUserInfo() {
       return fetch(`${this._baseUrl}/users/me`, {
-        headers: this._headers
+      headers: this._headers
       })
         .then(res => this._validateQuery(res));
-    }
+   }
   
     // Редактирование информации о пользователе 
-    editUserInfo(data) {
+    updateUserInfo(data) {
       return fetch(`${this._baseUrl}/users/me`, {
         method: 'PATCH',
         headers: this._headers,
@@ -79,18 +78,19 @@
       })
         .then(res => this._validateQuery(res));
     }
-  
+   
+    
     // Редактирование аватара пользователя через попап
-    updAvatar(data) {
+    changeAvatar(link) {
       return fetch(`${this._baseUrl}/users/me/avatar`, {
         method: 'PATCH',
         headers: this._headers,
         body: JSON.stringify({
-          avatar: data.avatar
+          avatar: link
         })
       })
-        .then(res => this._validateQuery(res));
-    };
+        .then(res => this._validateQuery(res))
+    }
   }
   const api = new Api({
     baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-61',

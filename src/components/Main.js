@@ -1,14 +1,15 @@
 import React from 'react'
 import Card from './Card.js';
-import api from '../utils/Api.js'
+import {CurrentUserContext} from "../contexts/CurrentUserContext";
+import {CardsContext} from "../contexts/CardsContext";
+
+//import api from '../utils/Api.js'
 
 function Main(props) {
-    const [userName, setUserName] = React.useState('');
-    const [userSubtitle, setUserSubtitle] = React.useState('');
-    const [userAvatar, setUserAvatar] = React.useState('');
-    const [cards, setCards] = React.useState([]);
+    const currentUser = React.useContext(CurrentUserContext);
+    const cards = React.useContext(CardsContext);
 
-    React.useEffect(() => {
+    /*React.useEffect(() => {
         api.getUserInfo()
             .then(res => {
                 setUserName(res.name);
@@ -20,26 +21,32 @@ function Main(props) {
                     .then(res => setCards(res))
             })
             .catch(err => console.log(err));
-    }, []);
+    }, []);*/
 
     return (
         <main>
             <section className="profile">
                 <div className="profile__avatar-container" onClick={props.onEditAvatar}>
                     <button className="profile__avatar-button"></button>
-                    <img className="profile__avatar" src={userAvatar} alt="Аватар пользователя" name="avatar" />
+                    <img className="profile__avatar" src={currentUser.avatar} alt="Аватар пользователя" name="avatar" />
                 </div>
                 <div className="profile__info">
-                    <h1 className="profile__title">{userName}</h1>
+                    <h1 className="profile__title">{currentUser.name}</h1>
                     <button onClick={props.onEditProfile} type="button" className="profile__edit-button"></button>
-                    <p className="profile__subtitle">{userSubtitle}</p>
+                    <p className="profile__subtitle">{currentUser.about}</p>
                 </div>
                 <button onClick={props.onAddPlace} type="button" className="profile__add-button"></button>
             </section>
             <section className ="elements">
                 <ul className ="elements__container">
                     {cards.map((card) =>
-                        <Card onCardClick={props.onCardClick} key={card._id} card={card} />
+                         <Card
+                         onCardClick={props.onCardClick}
+                         onLikeClick={props.onLikeClick}
+                         onDeleteClick={props.onDeleteClick}
+                         key={card._id}
+                         card={card}
+                     />
                     )}
                 </ul>
             </section>
