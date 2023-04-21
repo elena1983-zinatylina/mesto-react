@@ -159,7 +159,7 @@ function App() {
                         onButtonClose={closeAllPopups}
                         onOverlayClose={closeAllPopupsByOverlay}
                     />
-                    <PopupWithForm name={'delete'}/>
+                    <PopupWithForm />
                 </div>
             </CurrentUserContext.Provider>
         </CardsContext.Provider>

@@ -73,12 +73,13 @@
         headers: this._headers,
         body: JSON.stringify({
           name: data.name,
-          about: data.description
+          about: data.about
         })
       })
-        .then(res => this._validateQuery(res));
+        .then(res => this._validateQuery(res))
     }
-   
+  
+       
     
     // Редактирование аватара пользователя через попап
     changeAvatar(link) {
