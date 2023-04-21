@@ -8,7 +8,7 @@ const Card  = (props) => {
     const currentUser = React.useContext(CurrentUserContext);
     const card = props.card;
     const isOwn = card.owner._id === currentUser._id;
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(like => like._id === currentUser._id);
     const cardLikeButtonClassName = `card__like-button ${
         isLiked ? "card__like-button_active" : ""
       }`;
@@ -28,8 +28,6 @@ const Card  = (props) => {
     }
     return (
         
-       
-
         <li className="card">
                 <img
                     src={card.link}
