@@ -4,9 +4,9 @@ import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
-import api from "../utils/Api";
+import api from "../utils/api";
 import { CurrentUserContext } from '../contexts/CurrentUserContext'
-import {CardsContext} from '../contexts/CardsContext'
+import { CardsContext } from '../contexts/CardsContext'
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
@@ -22,7 +22,7 @@ function App() {
     const [cards, setCards] = React.useState([]);
 
     React.useEffect(() => {
-        Promise.all([api. getUserInfo(), api.getInitialCards()])
+        Promise.all([api.getUserInfo(), api.getInitialCards()])
             .then(results => {
                 setCurrentUser(results[0]);
                 setCards(results[1])
@@ -125,16 +125,16 @@ function App() {
     return (
         <CardsContext.Provider value={cards}>
             <CurrentUserContext.Provider value={currentUser}>
-            <div className="page">
-                    <Header/>
+                <div className="page">
+                    <Header />
                     <Main onEditProfile={handleEditProfileClick}
-                          onAddPlace={handleEditPlaceClick}
-                          onEditAvatar={handleEditAvatarClick}
-                          onCardClick={handleCardClick}
-                          onLikeClick={handleCardLike}
-                          onDeleteClick={handleCardDelete}
+                        onAddPlace={handleEditPlaceClick}
+                        onEditAvatar={handleEditAvatarClick}
+                        onCardClick={handleCardClick}
+                        onLikeClick={handleCardLike}
+                        onDeleteClick={handleCardDelete}
                     />
-                    <Footer/>
+                    <Footer />
                     <EditProfilePopup
                         isOpen={isEditProfilePopupOpen}
                         onButtonClose={closeAllPopups}

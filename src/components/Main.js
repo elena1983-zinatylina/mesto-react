@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './Card.js';
-import {CurrentUserContext} from "../contexts/CurrentUserContext";
-import {CardsContext} from "../contexts/CardsContext";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import { CardsContext } from "../contexts/CardsContext";
 
 //import api from '../utils/Api.js'
 
@@ -37,16 +37,16 @@ function Main(props) {
                 </div>
                 <button onClick={props.onAddPlace} type="button" className="profile__add-button"></button>
             </section>
-            <section className ="elements">
-                <ul className ="elements__container">
+            <section className="elements">
+                <ul className="elements__container">
                     {cards.map((card) =>
-                         <Card
-                         onCardClick={props.onCardClick}
-                         onLikeClick={props.onLikeClick}
-                         onDeleteClick={props.onDeleteClick}
-                         key={card._id}
-                         card={card}
-                     />
+                        <Card
+                            onCardClick={props.onCardClick}
+                            onLikeClick={props.onLikeClick}
+                            onDeleteClick={props.onDeleteClick}
+                            key={card._id}
+                            card={card}
+                        />
                     )}
                 </ul>
             </section>

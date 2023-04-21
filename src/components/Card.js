@@ -4,17 +4,15 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 
 
-const Card  = (props) => {
+const Card = (props) => {
     const currentUser = React.useContext(CurrentUserContext);
     const card = props.card;
     const isOwn = card.owner._id === currentUser._id;
     const isLiked = card.likes.some(like => like._id === currentUser._id);
-    const cardLikeButtonClassName = `card__like-button ${
-        isLiked ? "card__like-button_active" : ""
-      }`;
-     const cardDeleteButtonClassName = `card__delete-button ${
-        isOwn ? "card__delete-button_active" : ""
-     }`;
+    const cardLikeButtonClassName = `card__like-button ${isLiked ? "card__like-button_active" : ""
+        }`;
+    const cardDeleteButtonClassName = `card__delete-button ${isOwn ? "card__delete-button_active" : ""
+        }`;
     const handleCardClick = () => {
         props.onCardClick(card);
     };
@@ -27,15 +25,15 @@ const Card  = (props) => {
         props.onDeleteClick(card);
     }
     return (
-        
+
         <li className="card">
-                <img
-                    src={card.link}
-                    alt={card.name}
-                    className="card__image"
-                    onClick={handleCardClick}
-                />
-           
+            <img
+                src={card.link}
+                alt={card.name}
+                className="card__image"
+                onClick={handleCardClick}
+            />
+
             <div className="card__mask-group">
                 <h3 className="card__title">
                     {card.name}
@@ -46,8 +44,8 @@ const Card  = (props) => {
                     className={cardDeleteButtonClassName}
                     onClick={handleDeleteClick}
                     alt="Кнопка удалить карточку">
-                    </button>
-                     
+                </button>
+
                 }
                 <div className="place__likes">
                     <button
@@ -62,7 +60,7 @@ const Card  = (props) => {
                 </div>
             </div>
         </li>
-       
+
     );
 }
 

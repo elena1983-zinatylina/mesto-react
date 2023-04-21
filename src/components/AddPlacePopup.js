@@ -20,28 +20,28 @@ function AddPlacePopup(props) {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        props.onAddPlace({name, link});
+        props.onAddPlace({ name, link });
     }
 
     return (
         <PopupWithForm
-        name={'new-card'}
-        title={'Новое место'}
-        isOpen={props.isOpen}
-        onButtonClose={props.onButtonClose}
-        onOverlayClose={props.onOverlayClose}
-        buttonText={'Создать'}
-        onSubmit={handleSubmit}
-    >
-         
-        <input type="text" className="popup__input popup__input_plase-name" name="name" value={name}
-            placeholder="Название" minLength="2" maxLength="40" required onChange={handleNameChange}/>
-         <span className="popup__input-error"></span>
-        <input type="url" className="popup__input popup__input_link-images" name="link"  value={link}
-            placeholder="Ссылка на картинку" required onChange={handleLinkChange}/>
-        <span className="popup__input-error"></span>
-       
-    </PopupWithForm>
+            name={'new-card'}
+            title={'Новое место'}
+            isOpen={props.isOpen}
+            onButtonClose={props.onButtonClose}
+            onOverlayClose={props.onOverlayClose}
+            buttonText={'Создать'}
+            onSubmit={handleSubmit}
+        >
+
+            <input type="text" className="popup__input popup__input_plase-name" name="name" value={name}
+                placeholder="Название" minLength="2" maxLength="40" required onChange={handleNameChange} />
+            <span className="popup__input-error"></span>
+            <input type="url" className="popup__input popup__input_link-images" name="link" value={link}
+                placeholder="Ссылка на картинку" required onChange={handleLinkChange} />
+            <span className="popup__input-error"></span>
+
+        </PopupWithForm>
     )
 }
 

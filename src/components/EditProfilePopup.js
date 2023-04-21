@@ -29,28 +29,28 @@ function EditProfilePopup(props) {
             about: description,
         });
     }
-    
+
 
     return (
         <PopupWithForm
-               name={'profile'}
-                title={'Редактировать профиль'}
-                isOpen={props.isOpen}
-                onButtonClose={props.onButtonClose}
-                onOverlayClose={props.onOverlayClose}
-                buttonText={'Сохранить'}
-                onSubmit={handleSubmit}
-            >
-                <input type="text" className="popup__input popup__input_user_name"
-                    name="name" value={name} placeholder="Имя"
-                    minLength="2" maxLength="40" required onChange={handleNameChange}/>
-                <span className="popup__input-error" ></span>
-                <input type="text" className="popup__input popup__input_user_about"
-                    name="about"  value={description} placeholder="Работа"
-                    minLength="2" maxLength="40" required onChange={handleDescriptionChange}/>
-                <span className="popup__input-error"></span>
+            name={'profile'}
+            title={'Редактировать профиль'}
+            isOpen={props.isOpen}
+            onButtonClose={props.onButtonClose}
+            onOverlayClose={props.onOverlayClose}
+            buttonText={'Сохранить'}
+            onSubmit={handleSubmit}
+        >
+            <input type="text" className="popup__input popup__input_user_name"
+                name="name" value={name} placeholder="Имя"
+                minLength="2" maxLength="40" required onChange={handleNameChange} />
+            <span className="popup__input-error" ></span>
+            <input type="text" className="popup__input popup__input_user_about"
+                name="about" value={description} placeholder="Работа"
+                minLength="2" maxLength="40" required onChange={handleDescriptionChange} />
+            <span className="popup__input-error"></span>
 
-            </PopupWithForm>
+        </PopupWithForm>
     );
 }
 
