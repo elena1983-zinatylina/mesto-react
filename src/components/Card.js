@@ -2,8 +2,6 @@ import React from 'react';
 import deleteButton from '../images/корзина.svg';
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-
-
 const Card = (props) => {
     const currentUser = React.useContext(CurrentUserContext);
     const card = props.card;
@@ -11,8 +9,7 @@ const Card = (props) => {
     const isLiked = card.likes.some(like => like._id === currentUser._id);
     const cardLikeButtonClassName = `card__like-button ${isLiked ? "card__like-button_active" : ""
         }`;
-    const cardDeleteButtonClassName = `card__delete-button ${isOwn ? "card__delete-button_active" : ""
-        }`;
+
     const handleCardClick = () => {
         props.onCardClick(card);
     };
@@ -24,8 +21,8 @@ const Card = (props) => {
     const handleDeleteClick = () => {
         props.onDeleteClick(card);
     }
-    return (
 
+    return (
         <li className="card">
             <img
                 src={card.link}
@@ -33,19 +30,18 @@ const Card = (props) => {
                 className="card__image"
                 onClick={handleCardClick}
             />
-
             <div className="card__mask-group">
-                <h3 className="card__title">
+                <h3 
+                className="card__title">
                     {card.name}
                 </h3>
-                {<button
-                    type="button"
-                    src={deleteButton}
-                    className={cardDeleteButtonClassName}
-                    onClick={handleDeleteClick}
-                    alt="Кнопка удалить карточку">
-                </button>
-
+                {isOwn &&
+                    <button
+                        type="button"
+                        src={deleteButton}
+                        className='card__delete-button'
+                        onClick={handleDeleteClick}
+                        alt="Кнопка удалить карточку" />
                 }
                 <div className="place__likes">
                     <button
@@ -54,7 +50,8 @@ const Card = (props) => {
                         onClick={handleLikeClick}
                         title="Лайк">
                     </button>
-                    <span className="card__likes-number">
+                    <span 
+                    className="card__likes-number">
                         {card.likes.length}
                     </span>
                 </div>

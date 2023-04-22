@@ -3,25 +3,9 @@ import Card from './Card.js';
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import { CardsContext } from "../contexts/CardsContext";
 
-//import api from '../utils/Api.js'
-
 function Main(props) {
     const currentUser = React.useContext(CurrentUserContext);
     const cards = React.useContext(CardsContext);
-
-    /*React.useEffect(() => {
-        api.getUserInfo()
-            .then(res => {
-                setUserName(res.name);
-                setUserSubtitle(res.about);
-                setUserAvatar(res.avatar);
-            })
-            .then(() => {
-                api.getInitialCards()
-                    .then(res => setCards(res))
-            })
-            .catch(err => console.log(err));
-    }, []);*/
 
     return (
         <main>

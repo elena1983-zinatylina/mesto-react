@@ -30,7 +30,6 @@ function EditProfilePopup(props) {
         });
     }
 
-
     return (
         <PopupWithForm
             name={'profile'}
@@ -49,7 +48,6 @@ function EditProfilePopup(props) {
                 name="about" value={description} placeholder="Работа"
                 minLength="2" maxLength="40" required onChange={handleDescriptionChange} />
             <span className="popup__input-error"></span>
-
         </PopupWithForm>
     );
 }
